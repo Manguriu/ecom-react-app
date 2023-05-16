@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+/* importing all the css files in one file */
+@import "BigSlider.css";
+@import "Button.css";
+@import "Card.css";
+@import "Footer.css";
+@import "MegaMenu.css";
+@import "NavDesktop.css";
+@import "NavMobile.css";
+@import "Typo.css";
+
+
+body {
+    background-color:#ffff;
+}

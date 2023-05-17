@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -66,19 +66,30 @@ class NewArrival extends Component {
       <Fragment>
          <Container className="text-center" fluid={true} >
               <div className="section-title text-center mb-55">
-                <h2>New Arrivals &nbsp;
+                {/* <h2>New Arrivals &nbsp;
                   <a className='btn btn-sm ml-2 site-btn' onClick={this.previous}><i className='fa fa-angle-left'></i></a>
                   &nbsp;
 
                   <a className='btn btn-sm ml-2 site-btn' onClick={this.next}><i className='fa fa-angle-right'></i></a>
-                </h2>
+                </h2> */}
+
+              <h2>
+                New Arrivals &nbsp;
+                <button className='btn btn-sm ml-2 site-btn' onClick={this.previous}>
+                  <i className='fa fa-angle-left'></i>
+                </button>
+                &nbsp;
+                <button className='btn btn-sm ml-2 site-btn' onClick={this.next}>
+                  <i className='fa fa-angle-right'></i>
+                </button>
+              </h2>
                 <p ClassName=''>This are some of our New products, Amazing New Arrivals you may like.</p>
               </div>
           <Row>
           <Slider ref={c=>(this.slider=c)}{...settings}>
           <div>
           <Card className='image-box card'>
-              <img className='center' src="https://m.media-amazon.com/images/I/51eOztNdCkL._AC_SY200_.jpg" />
+              <img className='center' alt='' src="https://m.media-amazon.com/images/I/51eOztNdCkL._AC_SY200_.jpg" />
             <Card.Body>
               <p className='product-name-on-card'> Iphone phone CX565 G5</p>
               <p className='product-price-on-card'>Price:Ksh.50000</p>
@@ -87,7 +98,7 @@ class NewArrival extends Component {
           </div>
           <div>
           <Card className='image-box card'>
-              <img className='center' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/75/330459/1.jpg?7167" />
+              <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/75/330459/1.jpg?7167" />
             <Card.Body>
               <p className='product-name-on-card'> Iphone phone CX565 G5</p>
               <p className='product-price-on-card'>Price:Ksh.50000</p>
@@ -96,7 +107,7 @@ class NewArrival extends Component {
           </div>
           <div>
             <Card className='image-box card'>
-              <img className='center' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/74/8951331/1.jpg?9651" />
+              <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/74/8951331/1.jpg?9651" />
             <Card.Body>
               <p className='product-name-on-card'> Iphone phone CX565 G5</p>
               <p className='product-price-on-card'>Price:Ksh.50000</p>
@@ -105,7 +116,7 @@ class NewArrival extends Component {
           </div>
           <div>
           <Card className='image-box card'>
-              <img className='center' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/84/723878/1.jpg?2238" />
+              <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/84/723878/1.jpg?2238" />
             <Card.Body>
               <p className='product-name-on-card'> Iphone phone CX565 G5</p>
               <p className='product-price-on-card'>Price:Ksh.50000</p>
@@ -114,7 +125,7 @@ class NewArrival extends Component {
           </div>
           <div>
             <Card className='image-box card'>
-              <img className='center' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/74/9223711/1.jpg?6894" />
+              <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/74/9223711/1.jpg?6894" />
             <Card.Body>
               <p className='product-name-on-card'> Iphone phone CX565 G5</p>
               <p className='product-price-on-card'>Price:Ksh.50000</p>
@@ -123,7 +134,7 @@ class NewArrival extends Component {
           </div>
           <div>
             <Card className='image-box card'>
-              <img className='center' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/36/1485511/1.jpg?3906" />
+              <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/36/1485511/1.jpg?3906" />
             <Card.Body>
               <p className='product-name-on-card'> Iphone phone CX565 G5</p>
               <p className='product-price-on-card'>Price:Ksh.50000</p>
@@ -132,7 +143,7 @@ class NewArrival extends Component {
           </div>
           <div>
             <Card className='image-box card'>
-              <img className='center' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/21/573668/1.jpg?3992" />
+              <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/21/573668/1.jpg?3992" />
             <Card.Body>
               <p className='product-name-on-card'> Iphone phone CX565 G5</p>
               <p className='product-price-on-card'>Price:Ksh.50000</p>
@@ -141,7 +152,7 @@ class NewArrival extends Component {
           </div>
           <div>
             <Card className='image-box card'>
-              <img className='center' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/30/158323/1.jpg?4896" />
+              <img className='center'alt=''src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/30/158323/1.jpg?4896" />
             <Card.Body>
               <p className='product-name-on-card'> Iphone phone CX565 G5</p>
               <p className='product-price-on-card'>Price:Ksh.50000</p>

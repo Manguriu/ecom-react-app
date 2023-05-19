@@ -83,7 +83,7 @@ class NewArrival extends Component {
                   <i className='fa fa-angle-right'></i>
                 </button>
               </h2>
-                <p ClassName=''>This are some of our New products, Amazing New Arrivals you may like.</p>
+                <p className=''>This are some of our New products, Amazing New Arrivals you may like.</p>
               </div>
           <Row>
           <Slider ref={c=>(this.slider=c)}{...settings}>

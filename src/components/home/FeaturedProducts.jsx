@@ -9,7 +9,7 @@ class FeaturedProducts extends Component {
         <Container className="text-center" fluid={true} >
         <div className="section-title text-center mb-55">
           <h2>All New Products</h2>
-          <p ClassName=''>This are some of our featured products, Amazing Products you may like.</p>
+          <p className=''>This are some of our featured products, Amazing Products you may like.</p>
         </div>
 
           <Row>

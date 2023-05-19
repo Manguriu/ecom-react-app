@@ -9,7 +9,7 @@ export class Categories extends Component {
           <Container className="text-center" fluid={true} >
         <div className="section-title text-center mb-55">
           <h2>Products</h2>
-          <p ClassName=''>This are some of our featured products Categories</p>
+          <p className=''>This are some of our featured products Categories</p>
         </div>
           <Row>
             <Col key={1} xl={6} lg={6} md={2} sm={12} xs={12}>

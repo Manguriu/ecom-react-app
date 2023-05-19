@@ -4,20 +4,28 @@ import Categories from '../components/home/Categories'
 import Collection from '../components/home/Collection'
 import NewArrival from '../components/home/NewArrival'
 import TopHoome from '../components/home/TopHoome'
+import NavMenuDesktop from '../components/common/NavMenuDesktop'
+import NavMenuMobile from '../components/common/NavMenuMobile'
 
 class HomePage extends Component {
   render() {
     return (
       <Fragment>
+        
+        {/* <NavMenuDesktop /> */}
+        <NavMenuMobile />
+
         <TopHoome />
         
         <FeaturedProducts />
 
         <NewArrival />
+
+        <Categories />
         
         <Collection />
 
-        <Categories />
+        
 
       </Fragment>
     )

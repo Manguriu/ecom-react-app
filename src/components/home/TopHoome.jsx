@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import MegaMenu from './MegaMenu'
-import Slider from './Slider'
+
+import SliderMenu from './SliderMenu'
 
 export class TopHoome extends Component {
   render() {
@@ -15,7 +16,7 @@ export class TopHoome extends Component {
                 
 
                 <Col lg={9} md={9} sm={12}>
-                    <Slider />
+                    <SliderMenu />
                 </Col>
             </Row>
         </Container>

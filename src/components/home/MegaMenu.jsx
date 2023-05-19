@@ -108,6 +108,57 @@ class MegaMenu extends Component {
             </ul>
           </div>
 
+          <button className='accordion'>
+            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIcon'/>&nbsp;
+           Something 7
+           </button>
+
+          <div className='panel'>
+            <ul>
+              <li><a href="#" className='accordionItem'>Something items</a></li>
+              <li><a href="#" className='accordionItem'>Something items 2</a></li>
+            </ul>
+          </div>
+
+
+          <button className='accordion'>
+            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIcon'/>&nbsp;
+           Something 8
+           </button>
+
+          <div className='panel'>
+            <ul>
+              <li><a href="#" className='accordionItem'>Something items</a></li>
+              <li><a href="#" className='accordionItem'>Something items 2</a></li>
+            </ul>
+          </div>
+
+          <button className='accordion'>
+            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIcon'/>&nbsp;
+           Something 9
+           </button>
+
+          <div className='panel'>
+            <ul>
+              <li><a href="#" className='accordionItem'>Something items</a></li>
+              <li><a href="#" className='accordionItem'>Something items 2</a></li>
+            </ul>
+          </div>
+
+          <button className='accordion'>
+            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIcon'/>&nbsp;
+           Something 10
+           </button>
+
+          <div className='panel'>
+            <ul>
+              <li><a href="#" className='accordionItem'>Something items</a></li>
+              <li><a href="#" className='accordionItem'>Something items 2</a></li>
+            </ul>
+          </div>
+
+          
+
         </div>
       </div>
     )

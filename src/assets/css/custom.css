@@ -9,6 +9,9 @@
 @import "NavDesktop.css";
 @import "NavMobile.css";
 @import "Typo.css";
+@import "MegaMenuPhone.css";
+@import "Breakpoint.css";
+@import "All.css";
 
 
 body {

@@ -6,17 +6,22 @@ import NewArrival from '../components/home/NewArrival'
 import TopHoome from '../components/home/TopHoome'
 import NavMenuDesktop from '../components/common/NavMenuDesktop'
 import NavMenuMobile from '../components/common/NavMenuMobile'
+import TopMobile from '../components/home/TopMobile'
 
 class HomePage extends Component {
   render() {
     return (
       <Fragment>
-        
-        {/* <NavMenuDesktop /> */}
+        <div className='Desktop'>
+          <NavMenuDesktop />
+          <TopHoome />
+        </div>
+       
+        <div className='Mobile'>
         <NavMenuMobile />
-
-        <TopHoome />
-        
+        <TopMobile />
+           
+        </div>
         <FeaturedProducts />
 
         <NewArrival />

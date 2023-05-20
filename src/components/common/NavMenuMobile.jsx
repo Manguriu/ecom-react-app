@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import ecom2 from "../../assets/images/ecom2.png";
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import MegaMenuPhone from '../home/MegaMenuPhone';
 
  class NavMenuMobile extends Component {
 
@@ -67,8 +68,9 @@ import { Button } from 'react-bootstrap';
                 </Container>
 
                 <div className={this.state.sideNavState}>
+                  <MegaMenuPhone />
                 
-              
+               
                 </div>
 
 

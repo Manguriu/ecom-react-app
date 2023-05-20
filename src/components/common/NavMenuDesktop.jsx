@@ -53,7 +53,6 @@ class NavMenuDesktop extends Component {
                     <i className=" fa fa-bars"></i>
                   </Button>
                   <Link link to="/">
-                    {" "}
                     <img className="nav-logo{" src={ecom2} alt="" />
                   </Link>
                 </Col>
@@ -68,27 +67,26 @@ class NavMenuDesktop extends Component {
                 </Col>
 
                 <Col className="p-1 mt-1" lg={4} md={4} sm={12} xs={12}>
-                  <Link to="/" className="btn">
+                  <button href="/" className="btn">
                     <i className="fa h4 fa-heart"></i>
                     <sup>
                       <span className="badge text-white bg-danger">2</span>
                     </sup>
-                  </Link>
-                  <Link to="/" className="btn">
+                  </button>
+                  <button href="/" className="btn">
                     <i className="fa h4 fa-bell"></i>
                     <sup>
                       <span className="badge text-white bg-warning">5</span>
                     </sup>
-                  </Link>
-                  {/* <Link>
-                    <a href="#" className="btn"> */}
-                  <i className="fa h4 fa-mobile-alt"></i>
-                  {/* </a>
-                  </Link> */}
+                  </button>
 
-                  <Link to="/" className="h4 btn">
+                  <button className="btn">
+                    <i className="fa h4 fa-mobile-alt"></i>
+                  </button>
+
+                  <button href="/" className="h4 btn">
                     Login
-                  </Link>
+                  </button>
 
                   <Button className="cart-btn">
                     <i className=" fa fa-shopping-cart"> 10 items</i>

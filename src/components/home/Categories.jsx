@@ -12,9 +12,9 @@ export class Categories extends Component {
           <p className=''>This are some of our featured products Categories</p>
         </div>
           <Row>
-            <Col key={1} xl={6} lg={6} md={2} sm={12} xs={12}>
+            <Col xl={6} lg={6} md={2} sm={12} xs={12}>
               <Row>
-              <Col className='p-0' key={1} xl={3} lg={3} md={3} sm={6} xs={6}>
+              <Col className='p-0'  xl={3} lg={3} md={3} sm={6} xs={6}>
                 <Card className='h-100 w-100 text-center'>
                   <Card.Body>
                     <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/03/5704321/1.jpg?0167" />
@@ -24,7 +24,7 @@ export class Categories extends Component {
                </Card>
               </Col>
 
-              <Col className='p-0' key={1} xl={3} lg={3} md={3} sm={6} xs={6}>
+              <Col className='p-0'  xl={3} lg={3} md={3} sm={6} xs={6}>
                 <Card className='h-100 w-100 text-center'>
                   <Card.Body>
                     <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/41/8788211/1.jpg?1376" />
@@ -34,7 +34,7 @@ export class Categories extends Component {
                </Card>
               </Col>
 
-              <Col className='p-0' key={1} xl={3} lg={3} md={3} sm={6} xs={6}>
+              <Col className='p-0'  xl={3} lg={3} md={3} sm={6} xs={6}>
                 <Card className='h-100 w-100 text-center'>
                   <Card.Body>
                     <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/33/787346/1.jpg?3451" />
@@ -44,7 +44,7 @@ export class Categories extends Component {
                </Card>
               </Col>
 
-              <Col className='p-0' key={1} xl={3} lg={3} md={3} sm={6} xs={6}>
+              <Col className='p-0'  xl={3} lg={3} md={3} sm={6} xs={6}>
                 <Card className='h-100 w-100 text-center'>
                   <Card.Body>
                     <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/75/551685/1.jpg?1753" />
@@ -60,7 +60,7 @@ export class Categories extends Component {
 
             <Col key={1} xl={6} lg={6} md={2} sm={12} xs={12}>
               <Row>
-              <Col className='p-0' key={1} xl={3} lg={3} md={3} sm={6} xs={6}>
+              <Col className='p-0'  xl={3} lg={3} md={3} sm={6} xs={6}>
                 <Card className='h-100 w-100 text-center'>
                   <Card.Body>
                     <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/16/360454/1.jpg?1646" />
@@ -70,7 +70,7 @@ export class Categories extends Component {
                </Card>
               </Col>
 
-              <Col className='p-0' key={1} xl={3} lg={3} md={3} sm={6} xs={6}>
+              <Col className='p-0'  xl={3} lg={3} md={3} sm={6} xs={6}>
                 <Card className='h-100 w-100 text-center'>
                   <Card.Body>
                     <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/63/196649/1.jpg?9259" />
@@ -80,7 +80,7 @@ export class Categories extends Component {
                </Card>
               </Col>
 
-              <Col className='p-0' key={1} xl={3} lg={3} md={3} sm={6} xs={6}>
+              <Col className='p-0'  xl={3} lg={3} md={3} sm={6} xs={6}>
                 <Card className='h-100 w-100 text-center'>
                   <Card.Body>
                     <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/74/5016511/1.jpg?3923" />
@@ -90,7 +90,7 @@ export class Categories extends Component {
                </Card>
               </Col>
 
-              <Col className='p-0' key={1} xl={3} lg={3} md={3} sm={6} xs={6}>
+              <Col className='p-0'  xl={3} lg={3} md={3} sm={6} xs={6}>
                 <Card className='h-100 w-100 text-center'>
                   <Card.Body>
                     <img className='center' alt='' src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/48/747148/1.jpg?0731" />

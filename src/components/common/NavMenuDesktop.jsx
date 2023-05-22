@@ -42,7 +42,7 @@ class NavMenuDesktop extends Component {
   render() {
     return (
       <Fragment>
-        <div className="TopSectionDown">
+        <div className="TopSectionDown bg-dark">
           <Navbar fixed={"top"} className="navbar" bg="light">
             <Container
               fluid={"true"}
@@ -85,9 +85,9 @@ class NavMenuDesktop extends Component {
                     <i className="fa h4 fa-mobile-alt"></i>
                   </button>
 
-                  <button href="/" className="h4 btn">
+                  <Link to="/login" className="h4 btn ">
                     Login
-                  </button>
+                  </Link>
 
                   <Button className="cart-btn">
                     <i className=" fa fa-shopping-cart"> 10 items</i>

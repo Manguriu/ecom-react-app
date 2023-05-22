@@ -22,7 +22,8 @@ class NavMenuDesktop extends Component {
   };
 
   sideNavOpenclose = () => {
-    let contentOverState = this.state.contentOverState;
+    //eslint
+    // let contentOverState = this.state.contentOverState;
     let sideNavState = this.state.sideNavState;
 
     if (sideNavState === "sideNavOpen") {

@@ -1,14 +1,11 @@
 import React, { Component, Fragment } from "react";
+import About from "../components/others/About";
 import NavMenuDesktop from "../components/common/NavMenuDesktop";
 import NavMenuMobile from "../components/common/NavMenuMobile";
 import FooterDesktop from "../components/common/FooterDesktop";
 import FooterMobile from "../components/common/FooterMobile";
-import LoginUSer from "../components/common/LoginUSer";
 
-export class UserLogin extends Component {
-  componentDidMount() {
-    window.scroll(0, 0);
-  }
+export class AboutCompany extends Component {
   render() {
     return (
       <Fragment>
@@ -19,7 +16,7 @@ export class UserLogin extends Component {
           <NavMenuMobile />
         </div>
 
-        <LoginUSer />
+        <About />
 
         <div className="Desktop">
           <FooterDesktop />
@@ -33,4 +30,4 @@ export class UserLogin extends Component {
   }
 }
 
-export default UserLogin;
+export default AboutCompany;

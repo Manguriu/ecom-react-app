@@ -3,12 +3,9 @@ import NavMenuDesktop from "../components/common/NavMenuDesktop";
 import NavMenuMobile from "../components/common/NavMenuMobile";
 import FooterDesktop from "../components/common/FooterDesktop";
 import FooterMobile from "../components/common/FooterMobile";
-import LoginUSer from "../components/common/LoginUSer";
+import PushNotification from "../components/Notification/PushNotification";
 
-export class UserLogin extends Component {
-  componentDidMount() {
-    window.scroll(0, 0);
-  }
+export class Notification extends Component {
   render() {
     return (
       <Fragment>
@@ -19,7 +16,7 @@ export class UserLogin extends Component {
           <NavMenuMobile />
         </div>
 
-        <LoginUSer />
+        <PushNotification />
 
         <div className="Desktop">
           <FooterDesktop />
@@ -33,4 +30,4 @@ export class UserLogin extends Component {
   }
 }
 
-export default UserLogin;
+export default Notification;

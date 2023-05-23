@@ -3,9 +3,9 @@ import NavMenuDesktop from "../components/common/NavMenuDesktop";
 import NavMenuMobile from "../components/common/NavMenuMobile";
 import FooterDesktop from "../components/common/FooterDesktop";
 import FooterMobile from "../components/common/FooterMobile";
-import LoginUSer from "../components/common/LoginUSer";
+import Contact from "../components/common/Contact";
 
-export class UserLogin extends Component {
+export class ContactPage extends Component {
   componentDidMount() {
     window.scroll(0, 0);
   }
@@ -19,7 +19,7 @@ export class UserLogin extends Component {
           <NavMenuMobile />
         </div>
 
-        <LoginUSer />
+        <Contact />
 
         <div className="Desktop">
           <FooterDesktop />
@@ -33,4 +33,4 @@ export class UserLogin extends Component {
   }
 }
 
-export default UserLogin;
+export default ContactPage;

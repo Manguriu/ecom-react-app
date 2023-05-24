@@ -67,6 +67,9 @@ class FooterDesktop extends Component {
                 <Link link to="/">
                   <img className="mt-2" src={google} alt="" />
                 </Link>
+                <br></br>
+                Change Language
+                <div id="google_translate_element"></div>
               </Col>
             </Row>
           </Container>

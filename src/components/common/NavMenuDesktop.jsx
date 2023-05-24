@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Col, Container, Navbar, Row } from "react-bootstrap";
 import ecom2 from "../../assets/images/ecom2.png";
+import menu from "../../assets/images/menu.png";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import AllMenu from "../home/AllMenu";
@@ -50,11 +51,15 @@ class NavMenuDesktop extends Component {
             >
               <Row>
                 <Col lg={4} md={4} sm={12} xs={12}>
-                  <Button onClick={this.menuClickHandler} className="btn">
-                    <i className=" fa fa-bars"></i>
-                  </Button>
+                  <img
+                    src={menu}
+                    alt=""
+                    className="bar-imag"
+                    onClick={this.menuClickHandler}
+                  />
+
                   <Link link to="/">
-                    <img className="nav-logo{" src={ecom2} alt="" />
+                    <img className="nav-logo" src={ecom2} alt="" />
                   </Link>
                 </Col>
 
@@ -90,9 +95,9 @@ class NavMenuDesktop extends Component {
                     Login
                   </Link>
 
-                  <Button className="cart-btn">
+                  <Link to="/cart" className="cart-btn">
                     <i className=" fa fa-shopping-cart"> 10 items</i>
-                  </Button>
+                  </Link>
                 </Col>
               </Row>
             </Container>

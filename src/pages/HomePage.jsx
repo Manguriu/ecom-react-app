@@ -9,11 +9,21 @@ import NavMenuMobile from "../components/common/NavMenuMobile";
 import TopMobile from "../components/home/TopMobile";
 import FooterDesktop from "../components/common/FooterDesktop";
 import FooterMobile from "../components/common/FooterMobile";
+import axios from "axios";
+import AppURL from "../api/AppURL";
 
 class HomePage extends Component {
   componentDidMount() {
     window.scroll(0, 0);
+    this.GetDetails();
+
   }
+// api to show the number of times the site has been visited
+
+  GetDetails =()=>{
+    axios.get(AppURL.Details).then().catch()
+  }
+
   render() {
     return (
       <Fragment>

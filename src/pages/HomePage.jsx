@@ -15,7 +15,7 @@ import AppURL from "../api/AppURL";
 class HomePage extends Component {
   componentDidMount() {
     window.scroll(0, 0);
-    this.GetDetails();
+    this.GetDetails();///api
 
   }
 // api to show the number of times the site has been visited

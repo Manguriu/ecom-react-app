@@ -1,7 +1,93 @@
 import React, { Component, Fragment } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import Validate from "../../validations/Validate";
+import axios from "axios";
+import AppURL from "../../api/AppURL";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class Contact extends Component {
+  constructor(){
+    super();
+
+    this.state={
+      name:"",
+      email:"",
+      message:"",
+    }
+  }
+
+  nameOnChannge=(event)=>{
+    let name = event.target.value;
+    // alert(name)
+    this.setState({name:name})
+
+  }
+
+  emailOnChannge=(event)=>{
+    let email = event.target.value;
+    // alert(email)
+    this.setState({email:email})
+
+  }
+
+  messageOnChannge=(event)=>{
+    let message = event.target.value;
+    // alert(message)
+    this.setState({message:message})
+
+  }
+  onFormSubmit=(event)=>{
+  event.preventDefault();
+  //  alert("hello");
+
+  let name = this.state.name;
+  let email = this.state.email;
+  let message =this.state.message;
+  let sendBtn =document.getElementById('sendBtn');
+  let formContact = document.getElementById('formContact')
+
+  //validation
+
+  if(message.length==0){
+    toast.error('No message found')
+  }else if(name.length==0){
+    toast.error('name field empty')
+  }else if(email.length==0){
+    toast.error('email not found')
+  }else if(!(Validate.NameRegx).test(name)){
+    toast.error('invalid name');
+  }
+  else{
+    sendBtn.innerHTML='Sending...';
+    let theFormData = new FormData();
+    theFormData.append("name",name)
+    theFormData.append("email",email)
+    theFormData.append("message",message)
+
+    axios.post(AppURL.ContactDetails,theFormData)
+
+    .then(function (response){
+      if(response.status==200 && response.data==1){
+        toast.success("Feedback sent succesfully. Thank you!");
+        sendBtn.innerHTML="send";
+        formContact.reset();
+      }else{
+        toast.error("error");
+        sendBtn.innerHTML="send";
+      }
+
+    })
+    .catch(function (error){
+      toast.error((error));
+      sendBtn.innerHTML="send";
+    });
+
+    event.preventDefault();
+
+  }
+  }
+
   render() {
     return (
       <Fragment>
@@ -22,25 +108,25 @@ export class Contact extends Component {
                   sm={12}
                   xs={12}
                 >
-                  <Form className="onboardForm">
+                  <Form id="formContact" className="onboardForm" onSubmit={this.onFormSubmit}>
                     <h4 className="section-title-login">Contact us</h4>
                     <h6 className="Section-sub-title">Contact Company</h6>
-                    <input
+                    <input onChange={this.nameOnChannge}
                       className="form-control m-2"
                       type="text"
-                      placeholder="Enter Phone Number.."
+                      placeholder="Enter Name.."
                     />
-                    <input
+                    <input onChange={this.emailOnChannge}
                       className="form-control m-2"
                       type="email"
                       placeholder="Enter Email.."
                     />
-                    <textarea
+                    <textarea onChange={this.messageOnChannge}
                       className="form-control m-2"
                       type="text"
                       placeholder="Enter Message.."
                     />
-                    <Button className="btn btn-block m-2 site-btn-login">
+                    <Button id="sendBtn" type="submit" className="btn btn-block m-2 site-btn-login">
                       {" "}
                       Send Message
                     </Button>
@@ -71,6 +157,18 @@ export class Contact extends Component {
             </Col>
           </Row>
         </Container>
+        <ToastContainer 
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        />
       </Fragment>
     );
   }

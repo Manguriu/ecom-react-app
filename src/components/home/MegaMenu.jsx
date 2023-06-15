@@ -1,168 +1,58 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class MegaMenu extends Component {
-
-  constructor(){
+  constructor(props) {
     super();
-    this.MegaMenu= this.MegaMenu.bind(this);
-
-  }
-  componentDidMount(){
-    this.MegaMenu();
-
   }
 
-  MegaMenu(){
-    var acc =document.getElementsByClassName("accordion");
-    var accNum = acc.length;
-    var i;
-    for(i=0; i<accNum; i++){
-      acc[i].addEventListener("click",function(){
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if(panel.style.maxHeight){
-          panel.style.maxHeight = null;
-        }else {
-          panel.style.maxHeight = panel.scrollHeight+ "px"
-
-        }
-
-      })
+  MenuClick = (event) => {
+    event.target.classList.toggle("active");
+    var panel = event.target.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
     }
- }
+  };
 
   render() {
-    return (
-      <div className='accordionmenuDiv'>
-        <div className='accordionmenuDivInside'>
+    const PropsData = this.props.data;
 
-          <button className='accordion'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIcon'/>&nbsp;
-           Something 1
+    const View = PropsData.map((PropsData, i) => {
+      return (
+        <div key={i.toString()}>
+          <button onClick={this.MenuClick} className="accordion mb-2">
+            <img
+              src={PropsData.category_image}
+              alt=""
+              className="accordionMenuIcon"
+            />
+            &nbsp;{PropsData.category_name}
           </button>
 
-          <div className='panel'>
+          <div className="panel">
             <ul>
-              <li><a href="#" className='accordionItem'>Something items</a></li>
-              <li><a href="#" className='accordionItem'>Something items 2</a></li>
+              {PropsData.sub_cat.map((sublist, i) => {
+                return (
+                  <li>
+                    <a href="#" className="accordionItem">
+                      {sublist.sub_cat}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
-
-          <button className='accordion'>
-            <img src="https://cdn-icons-png.flaticon.com/256/7958/7958354.png" alt="" className='accordionMenuIcon'/>&nbsp;
-           Something 2
-          </button>
-
-          <div className='panel'>
-            <ul>
-              <li><a href="#" className='accordionItem'>Something items</a></li>
-              <li><a href="#" className='accordionItem'>Something items 2</a></li>
-            </ul>
-          </div>
-
-          <button className='accordion'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIcon'/>&nbsp;
-           Something 3
-          </button>
-
-          <div className='panel'>
-            <ul>
-              <li><a href="#" className='accordionItem'>Something items</a></li>
-              <li><a href="#" className='accordionItem'>Something items 2</a></li>
-            </ul>
-          </div>
-
-          <button className='accordion'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIcon'/>&nbsp;
-           Something 4
-          </button>
-
-          <div className='panel'>
-            <ul>
-              <li><a href="#" className='accordionItem'>Something items</a></li>
-              <li><a href="#" className='accordionItem'>Something items 2</a></li>
-            </ul>
-          </div>
-
-          <button className='accordion'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIcon'/>&nbsp;
-           Something 5
-          </button>
-
-          <div className='panel'>
-            <ul>
-              <li><a href="#" className='accordionItem'>Something items</a></li>
-              <li><a href="#" className='accordionItem'>Something items 2</a></li>
-            </ul>
-          </div>
-
-          <button className='accordion'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIcon'/>&nbsp;
-           Something 6
-           </button>
-
-          <div className='panel'>
-            <ul>
-              <li><a href="#" className='accordionItem'>Something items</a></li>
-              <li><a href="#" className='accordionItem'>Something items 2</a></li>
-            </ul>
-          </div>
-
-          <button className='accordion'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIcon'/>&nbsp;
-           Something 7
-           </button>
-
-          <div className='panel'>
-            <ul>
-              <li><a href="#" className='accordionItem'>Something items</a></li>
-              <li><a href="#" className='accordionItem'>Something items 2</a></li>
-            </ul>
-          </div>
-
-
-          <button className='accordion'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIcon'/>&nbsp;
-           Something 8
-           </button>
-
-          <div className='panel'>
-            <ul>
-              <li><a href="#" className='accordionItem'>Something items</a></li>
-              <li><a href="#" className='accordionItem'>Something items 2</a></li>
-            </ul>
-          </div>
-
-          <button className='accordion'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIcon'/>&nbsp;
-           Something 9
-           </button>
-
-          <div className='panel'>
-            <ul>
-              <li><a href="#" className='accordionItem'>Something items</a></li>
-              <li><a href="#" className='accordionItem'>Something items 2</a></li>
-            </ul>
-          </div>
-
-          <button className='accordion'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIcon'/>&nbsp;
-           Something 10
-           </button>
-
-          <div className='panel'>
-            <ul>
-              <li><a href="#" className='accordionItem'>Something items</a></li>
-              <li><a href="#" className='accordionItem'>Something items 2</a></li>
-            </ul>
-          </div>
-
-          
-
         </div>
+      );
+    });
+
+    return (
+      <div className="accordionmenuDiv mt-3">
+        <div className="accordionmenuDivInside">{View}</div>
       </div>
-    )
+    );
   }
 }
 
-export default MegaMenu
+export default MegaMenu;

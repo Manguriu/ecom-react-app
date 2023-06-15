@@ -1,178 +1,68 @@
 import React, { Component } from "react";
+import axios from "axios";
+import AppURL from "../../api/AppURL";
 
 export class AllMenu extends Component {
-  constructor() {
+  constructor(props) {
     super();
-    this.MegaMenu = this.MegaMenu.bind(this);
+    this.state = {
+      Menudata: [],
+    };
   }
   componentDidMount() {
-    this.MegaMenu();
+    axios
+      .get(AppURL.AllCategory)
+      .then((response) => {
+        this.setState({ Menudata: response.data });
+      })
+      .catch((error) => {});
   }
 
-  MegaMenu() {
-    var acc = document.getElementsByClassName("accordionAll");
-    var accNum = acc.length;
-    var i;
-    for (i = 0; i < accNum; i++) {
-      acc[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-          panel.style.maxHeight = null;
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        }
-      });
+  MenuClick = (event) => {
+    event.target.classList.toggle("active");
+    var panelAll = event.target.nextElementSibling;
+    if (panelAll.style.maxHeight) {
+      panelAll.style.maxHeight = null;
+    } else {
+      panelAll.style.maxHeight = panelAll.scrollHeight + "px";
     }
-  }
+  };
+
   render() {
-    return (
-      <div className="accordionmenuDivAll">
-        <div className="accordionmenuDivInsideAll">
-          <button className="accordionAll">
+    const PropsData = this.state.Menudata;
+
+    const View = PropsData.map((PropsData, i) => {
+      return (
+        <div key={i.toString()}>
+          <button onClick={this.MenuClick} className="accordionAll mb-2">
             <img
-              src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png"
+              src={PropsData.category_image}
               alt=""
               className="accordionMenuIconAll"
             />
-            &nbsp; Something 1
+            &nbsp;{PropsData.category_name}
           </button>
 
           <div className="panelAll">
             <ul>
-              <li>
-                <a href="#" className="accordionItemAll">
-                  Something items
-                </a>
-              </li>
-              <li>
-                <a href="#" className="accordionItemAll">
-                  Something items 2
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <button className="accordionAll">
-            <img
-              src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png"
-              alt=""
-              className="accordionMenuIconAll"
-            />
-            &nbsp; Something 2
-          </button>
-
-          <div className="panelAll">
-            <ul>
-              <li>
-                <a href="#" className="accordionItemAll">
-                  Something items
-                </a>
-              </li>
-              <li>
-                <a href="#" className="accordionItemAll">
-                  Something items 2
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <button className="accordionAll">
-            <img
-              src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png"
-              alt=""
-              className="accordionMenuIconAll"
-            />
-            &nbsp; Something 3
-          </button>
-
-          <div className="panelAll">
-            <ul>
-              <li>
-                <a href="#" className="accordionItemAll">
-                  Something items
-                </a>
-              </li>
-              <li>
-                <a href="#" className="accordionItemAll">
-                  Something items 2
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <button className="accordionAll">
-            <img
-              src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png"
-              alt=""
-              className="accordionMenuIconAll"
-            />
-            &nbsp; Something 4
-          </button>
-
-          <div className="panelAll">
-            <ul>
-              <li>
-                <a href="#" className="accordionItemAll">
-                  Something items
-                </a>
-              </li>
-              <li>
-                <a href="#" className="accordionItemAll">
-                  Something items 2
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <button className="accordionAll">
-            <img
-              src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png"
-              alt=""
-              className="accordionMenuIconAll"
-            />
-            &nbsp; Something 5
-          </button>
-
-          <div className="panelAll">
-            <ul>
-              <li>
-                <a href="#" className="accordionItemAll">
-                  Something items
-                </a>
-              </li>
-              <li>
-                <a href="#" className="accordionItemAll">
-                  Something items 2
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <button className="accordionAll">
-            <img
-              src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png"
-              alt=""
-              className="accordionMenuIconAll"
-            />
-            &nbsp; Something 6
-          </button>
-
-          <div className="panelAll">
-            <ul>
-              <li>
-                <a href="#" className="accordionItemAll">
-                  Something items
-                </a>
-              </li>
-              <li>
-                <a href="#" className="accordionItemAll">
-                  Something items 2
-                </a>
-              </li>
+              {PropsData.sub_cat.map((sublist, i) => {
+                return (
+                  <li>
+                    <a href="#" className="accordionItemAll">
+                      {sublist.sub_cat}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
+      );
+    });
+
+    return (
+      <div className="accordionmenuDivAll">
+        <div className="accordionmenuDivInsideAll">{View}</div>
       </div>
     );
   }

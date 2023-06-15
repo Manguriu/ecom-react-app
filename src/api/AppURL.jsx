@@ -5,6 +5,7 @@ class AppURL {
   static Details = this.BaseURL + "/getvisitor";
   static ContactDetails = this.BaseURL + "/getcontact";
   static SiteDetails = this.BaseURL + "/siteinfo";
+  static AllCategory = this.BaseURL + "/categories";
 }
 
 export default AppURL;

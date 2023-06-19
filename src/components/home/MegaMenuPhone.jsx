@@ -1,127 +1,71 @@
-import React, { Component,  } from 'react'
+import React, { Component } from "react";
+import axios from "axios";
+import AppURL from "../../api/AppURL";
 
-export class MegaMenuPhone extends Component {
+export class AllMenu extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      Menudata: [],
+    };
+  }
+  componentDidMount() {
+    axios
+      .get(AppURL.AllCategory)
+      .then((response) => {
+        this.setState({ Menudata: response.data });
+      })
+      .catch((error) => {});
+  }
 
-    constructor(){
-        super();
-        this.MegaMenu= this.MegaMenu.bind(this);
-    
-      }
-      componentDidMount(){
-        this.MegaMenu();
-    
-      }
-    
-      MegaMenu(){
-        var acc =document.getElementsByClassName("accordionMobile");
-        var accNum = acc.length;
-        var i;
-        for(i=0; i<accNum; i++){
-          acc[i].addEventListener("click",function(){
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if(panel.style.maxHeight){
-              panel.style.maxHeight = null;
-            }else {
-              panel.style.maxHeight = panel.scrollHeight+ "px"
-    
-            }
-    
-          })
-        }
-     }
+  MenuClick = (event) => {
+    event.target.classList.toggle("active");
+    var panelAll = event.target.nextElementSibling;
+    if (panelAll.style.maxHeight) {
+      panelAll.style.maxHeight = null;
+    } else {
+      panelAll.style.maxHeight = panelAll.scrollHeight + "px";
+    }
+  };
+
   render() {
+    const PropsData = this.state.Menudata;
+
+    const View = PropsData.map((PropsData, i) => {
+      return (
+        <div key={i.toString()}>
+          <button onClick={this.MenuClick} className="accordionAll mb-2">
+            <img
+              src={PropsData.category_image}
+              alt=""
+              className="accordionMenuIconAll"
+            />
+            &nbsp;{PropsData.category_name}
+          </button>
+
+          <div className="panelAll">
+            <ul>
+              {PropsData.sub_cat.map((sublist, i) => {
+                return (
+                  <li>
+                    <a href="#" className="accordionItemAll">
+                      {sublist.sub_cat}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      );
+    });
+
     return (
-        <div className='accordionmenuDivMobile'>
-        <div className='accordionmenuDivInsideMobile'>
-
-          <button className='accordionMobile'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIconMobile'/>&nbsp;
-           Something 1
-          </button>
-
-          <div className='panelMobile'>
-            <ul>
-              <li><a href="#" className='accordionItemMobile'>Something items</a></li>
-              <li><a href="#" className='accordionItemMobile'>Something items 2</a></li>
-            </ul>
-          </div>
-
-          <button className='accordionMobile'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIconMobile'/>&nbsp;
-           Something 2
-          </button>
-
-          <div className='panelMobile'>
-            <ul>
-              <li><a href="#" className='accordionItemMobile'>Something items</a></li>
-              <li><a href="#" className='accordionItemMobile'>Something items 2</a></li>
-            </ul>
-
-          </div>
-
-
-          <button className='accordionMobile'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIconMobile'/>&nbsp;
-           Something 3
-          </button>
-
-          <div className='panelMobile'>
-            <ul>
-              <li><a href="#" className='accordionItemMobile'>Something items</a></li>
-              <li><a href="#" className='accordionItemMobile'>Something items 2</a></li>
-            </ul>
-          </div>
-
-
-
-          <button className='accordionMobile'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIconMobile'/>&nbsp;
-           Something 4
-          </button>
-
-          <div className='panelMobile'>
-            <ul>
-              <li><a href="#" className='accordionItemMobile'>Something items</a></li>
-              <li><a href="#" className='accordionItemMobile'>Something items 2</a></li>
-            </ul>
-          </div>
-
-
-          <button className='accordionMobile'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIconMobile'/>&nbsp;
-           Something 5
-          </button>
-
-          <div className='panelMobile'>
-            <ul>
-              <li><a href="#" className='accordionItemMobile'>Something items</a></li>
-              <li><a href="#" className='accordionItemMobile'>Something items 2</a></li>
-            </ul>
-          </div>
-
-
-          <button className='accordionMobile'>
-            <img src="https://cdn-icons-png.flaticon.com/256/6467/6467786.png" alt="" className='accordionMenuIconMobile'/>&nbsp;
-           Something 6
-          </button>
-
-          <div className='panelMobile'>
-            <ul>
-              <li><a href="#" className='accordionItemMobile'>Something items</a></li>
-              <li><a href="#" className='accordionItemMobile'>Something items 2</a></li>
-            </ul>
-          </div>
-
-          </div>
+      <div className="accordionmenuDivAll">
+        <div className="accordionmenuDivInsideAll">{View}</div>
       </div>
-
-      
-
-      
-  )
+    );
+  }
 }
 
-}
-
-export default MegaMenuPhone
+export default AllMenu;

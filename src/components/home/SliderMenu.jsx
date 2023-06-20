@@ -2,11 +2,17 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import slider1 from "../../assets/images/slider1.jpg";
-import slider2 from "../../assets/images/slider2.png";
-import slider3 from "../../assets/images/slider3.jpg";
+
+
 
 class SliderMenu extends Component {
+  constructor() {
+    super();
+    this.state = {
+
+      Sliderdata:[],
+    };
+  }
   render() {
     var settings = {
       dots: true,
@@ -45,18 +51,20 @@ class SliderMenu extends Component {
         },
       ],
     };
+
+    const SliderData = this.props.data;
+    const View = SliderData.map((SliderData, i) => {
+      return(
+        <div key={i.toString()}>
+        <img alt="" className="slider-img" src={SliderData.image} />
+      </div>
+      )
+    })
     return (
       <div>
         <Slider {...settings}>
-          <div>
-            <img alt="" className="slider-img" src={slider1} />
-          </div>
-          <div>
-            <img alt="" className="slider-img" src={slider2} />
-          </div>
-          <div>
-            <img alt="" className="slider-img" src={slider3} />
-          </div>
+         
+          {View}
         </Slider>
       </div>
     );

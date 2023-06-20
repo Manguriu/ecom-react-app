@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import AppURL from "../../api/AppURL";
+import { Link } from "react-router-dom";
 
 export class AllMenu extends Component {
   constructor(props) {
@@ -48,9 +49,9 @@ export class AllMenu extends Component {
               {PropsData.sub_cat.map((sublist, i) => {
                 return (
                   <li>
-                    <a href="#" className="accordionItemAll">
+                     <Link to={"subcategorylist/"+PropsData.category_name+"/"+sublist.sub_cat} className="accordionItem">
                       {sublist.sub_cat}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}

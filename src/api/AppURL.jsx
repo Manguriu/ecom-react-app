@@ -6,6 +6,7 @@ class AppURL {
   static ContactDetails = this.BaseURL + "/getcontact";
   static SiteDetails = this.BaseURL + "/siteinfo";
   static AllCategory = this.BaseURL + "/categories";
+  static SlideMenu = this.BaseURL + "/slidermenu";
 
   static AllProductsremark(remark) {
     return this.BaseURL + "/Productsbyremark/"+remark;

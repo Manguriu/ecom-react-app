@@ -7,12 +7,16 @@ import { Card } from "react-bootstrap";
 import AppURL from "../../api/AppURL";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Newloading from "../placeholder/Newloading";
 
 class NewArrival extends Component {
   constructor(props) {
     super(props);
     this.state = {
       ProductData: [],
+      isLoading:"",
+      mainDiv: "d-none",
+      
     };
 
     this.next = this.next.bind(this);
@@ -28,7 +32,8 @@ class NewArrival extends Component {
     axios
       .get(AppURL.AllProductsremark("New"))
       .then((response) => {
-        this.setState({ ProductData: response.data });
+        this.setState({ ProductData: response.data,isLoading: "d-none",
+        mainDiv: "", });
       })
       .catch((error) => {});
   }
@@ -108,6 +113,10 @@ class NewArrival extends Component {
 
     return (
       <Fragment>
+        <Newloading isLoading={this.state.isLoading}/>
+        <div className={this.state.mainDiv}> 
+
+        
         <Container className="text-center" fluid={true}>
           <div className="section-title text-center mb-55">
             <h2>
@@ -134,6 +143,7 @@ class NewArrival extends Component {
             </Slider>
           </Row>
         </Container>
+        </div>
       </Fragment>
     );
   }

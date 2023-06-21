@@ -49,7 +49,7 @@ export class AllMenu extends Component {
               {PropsData.sub_cat.map((sublist, i) => {
                 return (
                   <li>
-                     <Link to={"subcategorylist/"+PropsData.category_name+"/"+sublist.sub_cat} className="accordionItem">
+                     <Link   to={"subcategorylist/"+PropsData.category_name+"/"+sublist.sub_cat} className="accordionItem text-link">
                       {sublist.sub_cat}
                     </Link>
                   </li>

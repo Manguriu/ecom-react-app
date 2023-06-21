@@ -1,12 +1,77 @@
 import React, { Component, Fragment } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import image1 from "../../assets/images/product/image1.jpg";
-import image2 from "../../assets/images/product/image2.png";
-import image3 from "../../assets/images/product/image3.png";
-import image4 from "../../assets/images/product/image4.png";
+import { Container, Row, Col } from "react-bootstrap";
+import ReactDOM from "react-dom";
 
 export class Product extends Component {
+  constructor() {
+    super();
+  }
+
+  //image loader
+  imagOnclick(event) {
+    let imgsrc = event.target.getAttribute("src");
+    let imgPreview = document.getElementById("imgPreview");
+
+    ReactDOM.findDOMNode(imgPreview).setAttribute("src", imgsrc);
+  }
+
+  priceOption(price, discount) {
+    if (discount === "na") {
+      return <p className="product-price-on-card">Price: Ksh : {price}</p>;
+    } else {
+      return (
+        <p className="product-price-on-card">
+          Price: Ksh : {price} <br></br>
+          Price: <strike className="text-warning"> Ksh {price}</strike>{" "}<br></br>
+          Discount : {discount}
+        </p>
+      );
+    }
+  }
+
   render() {
+    let AllData = this.props.data;
+    let title = AllData["productlist"][0]["title"];
+    let brand = AllData["productlist"][0]["brand"];
+    let category = AllData["productlist"][0]["category"];
+    let sub_category = AllData["productlist"][0]["sub_category"];
+    let image = AllData["productlist"][0]["image"];
+    let price = AllData["productlist"][0]["price"];
+    let product_code = AllData["productlist"][0]["product_code"];
+    let ratings = AllData["productlist"][0]["ratings"];
+    let remark = AllData["productlist"][0]["remark"];
+    let discount = AllData["productlist"][0]["discount"];
+    let short_desc = AllData["productdetails"][0]["short_desc"];
+    let size = AllData["productdetails"][0]["size"];
+    let color = AllData["productdetails"][0]["color"];
+    let image_1 = AllData["productdetails"][0]["image_1"];
+    let image_2 = AllData["productdetails"][0]["image_2"];
+    let image_3 = AllData["productdetails"][0]["image_3"];
+    let image_4 = AllData["productdetails"][0]["image_4"];
+    let long_desc = AllData["productdetails"][0]["long_desc"];
+
+    var ColorDiv = "d-none";
+    if (color !== "na") {
+      let ColorArray = color.split(",");
+      var colorOption = ColorArray.map((colorlist, i) => {
+        return <option value={colorlist}>{colorlist}</option>;
+      });
+      ColorDiv = "";
+    } else {
+      ColorDiv = "d-none";
+    }
+
+    var SizeDiv = "d-none";
+    if (size !== "na") {
+      let SizeArray = size.split(",");
+      var sizeOption = SizeArray.map((colorlist, i) => {
+        return <option value={colorlist}>{colorlist}</option>;
+      });
+      SizeDiv = "";
+    } else {
+      SizeDiv = "d-none";
+    }
+
     return (
       <Fragment>
         <Container fluid={true} className="BetweenTwoSection">
@@ -20,91 +85,88 @@ export class Product extends Component {
             >
               <Row>
                 <Col className="p-3" md={6} lg={6} sm={12} xs={12}>
-                  <img className="w-100" src={image1} />
+                  <img id="imgPreview" className="w-100" src={image} />
                   <Container className="my-3">
                     <Row>
                       <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                        <img className="w-100" src={image1} />
+                        <img
+                          onClick={this.imagOnclick}
+                          className="w-100 p_sm_img"
+                          alt=""
+                          src={image_1}
+                        />
                       </Col>
                       <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                        <img className="w-100" src={image2} />
+                        <img
+                          onClick={this.imagOnclick}
+                          className="w-100 p_sm_img"
+                          alt=""
+                          src={image_2}
+                        />
                       </Col>
                       <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                        <img className="w-100" src={image3} />
+                        <img
+                          onClick={this.imagOnclick}
+                          className="w-100 p_sm_img"
+                          alt=""
+                          src={image_3}
+                        />
                       </Col>
                       <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                        <img className="w-100" src={image4} />
+                        <img
+                          onClick={this.imagOnclick}
+                          className="w-100 p_sm_img"
+                          alt=""
+                          src={image_4}
+                        />
                       </Col>
                     </Row>
                   </Container>
                 </Col>
                 <Col className="p-3 " md={6} lg={6} sm={12} xs={12}>
-                  <h5 className="Product-Name">
-                    Sony Interactive Entertainment PS5 Playstation 5 Console
-                    Standard 825GB Disc
-                  </h5>
-                  <h6 className="section-sub-title">
-                    Brand: Sony Interactive Entertainment | Similar products
-                    from Sony Interactive Entertainment
+                  <h5 className="Product-Name">{title}</h5>
+                  <h6 className="section-sub-title">{short_desc}</h6>
+                  {this.priceOption(price,discount)}
+
+                  <h6 className="mt-2">
+                    <b>Category</b>: <i>{category}</i>
                   </h6>
-                  <div className="input-group">
-                    <div className="Product-price-card d-inline ">
-                      Reguler Price KSh 86,590
-                    </div>
-                    <div className="Product-price-card d-inline ">
-                      50% Discount
-                    </div>
-                    <div className="Product-price-card d-inline ">
-                      New Price KSh 43,245
-                    </div>
+                  <h6 className="mt-2">
+                    <b>Sub-Category</b>: <i>{sub_category}</i>
+                  </h6>
+                  <h6 className="mt-2">
+                    <b>Brand</b>: <i>{brand}</i>
+                  </h6>
+                  <h6 className="mt-2">
+                    <b>Product Code</b>: <i>{product_code}</i>
+                  </h6>
+
+                  <div className={ColorDiv}>
+                    <h6 className="mt-2">
+                      <b></b>:
+                    </h6>
+                    <select className="form-control form-select">
+                      <option>Select a Color...</option>
+                      {colorOption}
+                    </select>
                   </div>
-                  <h6 className="mt-2">Choose Color</h6>
-                  <div className="input-group">
-                    <div className="form-check mx-1">
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="exampleRadios"
-                        id="exampleRadios1"
-                        value="option1"
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor="exampleRadios1"
-                      >
-                        Black
-                      </label>
-                    </div>
-                    <div className="form-check mx-1">
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="exampleRadios"
-                        id="exampleRadios1"
-                        value="option1"
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor="exampleRadios1"
-                      >
-                        Green
-                      </label>
-                    </div>
-                    <div className="form-check mx-1">
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="exampleRadios"
-                        id="exampleRadios1"
-                        value="option1"
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor="exampleRadios1"
-                      >
-                        Red
-                      </label>
-                    </div>
+
+                  <div className={SizeDiv}>
+                    <h6 className="mt-2">Choose SIze:</h6>
+                    <select className="form-control form-select">
+                      <option>Select a Size...</option>
+                      {sizeOption}
+                    </select>
+                  </div>
+
+                  <div className="">
+                    <h6 className="mt-2">Choose Quantity:</h6>
+                    <select className="form-control form-select">
+                      <option>Select...</option>
+                      <option value="01">01</option>
+                      <option value="02">02</option>
+                      <option value="03">03</option>
+                    </select>
                   </div>
 
                   <h6 className="mt-2">Quantity</h6>
@@ -133,28 +195,7 @@ export class Product extends Component {
               <Row>
                 <Col className="" md={6} lg={6} sm={12} xs={12}>
                   <h6 className="mt-2">DETAILS</h6>
-                  <p>
-                    The PS5 console includes a white-and-black design to match
-                    the new controller that will be included in the box. The PS5
-                    stands vertically, like the Xbox Series X is primarily
-                    designed to be placed, and will include two versions: one
-                    with a 4K Blu-ray drive and a pure Digital Edition. Sony
-                    today finally provided a glimpse of its next-generation PS5
-                    game console. The PlayStation 5 will actually be sold in two
-                    forms: a standard version; and a "digital edition" that
-                    nixes the 4K Blu-ray disc player. Like the PS5 controller,
-                    the console also has a two-color scheme, making the hardware
-                    look a bit like a Star Wars stormtrooper.
-                  </p>
-                  <p>
-                    Sony also plans on selling some dedicated peripherals for
-                    the device, including gaming headphones, a charging stand
-                    for the controllers, and a web camera. Unfortunately, no
-                    pricing details were given. But the digital edition of the
-                    console indicates consumers will be able to buy a PS5 at a
-                    cheaper price, as long as they don’t need the Blu-ray
-                    player.
-                  </p>
+                  <h6>{long_desc}</h6>
                 </Col>
 
                 <Col className="" md={6} lg={6} sm={12} xs={12}>

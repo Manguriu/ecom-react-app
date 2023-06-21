@@ -44,6 +44,7 @@ class NewArrival extends Component {
     const MyView = Newlist.map((Newlist, i) => {
       if (Newlist.discount === "na") {
         return (
+          <Link className="text-link" to={"/product/"+Newlist.id}>
           <div>
             <Card className="image-box card">
               <img className="center" alt="" src={Newlist.image} />
@@ -53,10 +54,12 @@ class NewArrival extends Component {
               </Card.Body>
             </Card>
           </div>
+          </Link>
         );
       } else {
         return (
           <div>
+            <Link className="text-link" to={"/product/"+Newlist.id}>
             <Card className="image-box card">
               <img className="center" alt="" src={Newlist.image} />
               <Card.Body>
@@ -68,6 +71,7 @@ class NewArrival extends Component {
                 </p>
               </Card.Body>
             </Card>
+            </Link>
           </div>
         );
       }

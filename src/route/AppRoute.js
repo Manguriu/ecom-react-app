@@ -28,7 +28,7 @@ class AppRoute extends Component {
             <Route exact path="/refund" component={RefundPolicy}/>
             <Route exact path="/profile" component={CompanyProfile}/>
             <Route exact path="/about" component={AboutCompany}/>
-            <Route exact path="/product" component={ProductDetails}/>
+            <Route exact path="/product/:code" component={ProductDetails}/>
             <Route exact path="/notify" component={Notification}/>
             <Route exact path="/favourite" component={FavouritePage}/>
             <Route exact path="/cart" component={CartPage}/>

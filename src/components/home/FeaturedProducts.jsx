@@ -36,7 +36,7 @@ class FeaturedProducts extends Component {
       if (Featured.discount === "na") {
         return (
           <Col className="p-1" xl={2} lg={2} md={2} sm={4} xm={6}>
-            <Link to="/product">
+            <Link className="text-link" to={"/product/"+Featured.id}>
               <Card className="image-box card">
                 <img className="center" alt="" src={Featured.image} />
                 <Card.Body>
@@ -52,7 +52,7 @@ class FeaturedProducts extends Component {
       } else {
         return (
           <Col className="p-1" xl={2} lg={2} md={2} sm={4} xm={6}>
-            <Link to="/product">
+            <Link className="text-link" to={"/product/"+Featured.id}>
               <Card className="image-box card">
                 <img className="center" alt="" src={Featured.image} />
                 <Card.Body>

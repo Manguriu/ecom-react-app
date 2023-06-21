@@ -11,7 +11,7 @@ export class Category extends Component {
         if (Categorylist.discount === "na") {
           return (
             <Col className="p-1" xl={3} lg={3} md={3} sm={6} xm={6}>
-              <Link to="/product">
+              <Link className='text-link'  to={"/product/"+Categorylist.id}>
                 <Card className="image-box card">
                   <img className="center" alt="" src={Categorylist.image} />
                   <Card.Body>
@@ -25,7 +25,7 @@ export class Category extends Component {
         } else {
           return (
             <Col className="p-1" xl={3} lg={3} md={3} sm={6} xm={6}>
-              <Link to="/product">
+              <Link className='text-link' to={"/product/"+Categorylist.id}>
                 <Card className="image-box card">
                   <img className="center" alt="" src={Categorylist.image} />
                   <Card.Body>

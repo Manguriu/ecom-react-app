@@ -37,7 +37,7 @@ export class Categories extends Component {
           sm={6}
           xs={6}
         >
-          <Link to={"/categorylist/" + Datalist.category_name}>
+          <Link className="text-link" to={"/categorylist/" + Datalist.category_name}>
             <Card className="h-100 w-100 text-center">
               <Card.Body>
                 <img className="center" alt="" src={Datalist.category_image} />

@@ -19,6 +19,11 @@ class AppURL {
   static AllProductssubcategory(category,sub_category) {
     return this.BaseURL + "/Productsbysubcategory/"+category+"/"+sub_category;
   }
+
+  static ProductDetails(code) {
+    return this.BaseURL + "/productdesc/"+code;
+  }
+  
   
 
 }

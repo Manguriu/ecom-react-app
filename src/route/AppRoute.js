@@ -15,6 +15,10 @@ import CartPage from '../pages/CartPage'
 import CategoryPage from '../pages/CategoryPage'
 import ProductSub from '../pages/ProductSub'
 import Search from '../pages/Search'
+import UserRegistration from '../pages/UserRegistration'
+import PasswordReset from '../pages/PasswordReset'
+import ResetPage from '../pages/ResetPage'
+import Profilepage from '../pages/Profilepage'
 
 class AppRoute extends Component {
   render() {
@@ -26,6 +30,10 @@ class AppRoute extends Component {
 
             <Route exact path="/" render={(props)=> <HomePage {...props} key={Date.now()} />}/>
             <Route exact path="/login" render={(props)=> <UserLogin {...props} key={Date.now()} />}/>
+            <Route exact path="/register" render={(props)=> <UserRegistration {...props} key={Date.now()} />}/>
+            <Route exact path="/password/:id" render={(props)=> <ResetPage {...props} key={Date.now()} />}/>
+            <Route exact path="/userprofile" render={(props)=> <Profilepage {...props} key={Date.now()} />}/>
+            <Route exact path="/reset" render={(props)=> <PasswordReset {...props} key={Date.now()} />}/>
             <Route exact path="/contact" render={(props)=> <ContactPage {...props} key={Date.now()} />}/>
             <Route exact path="/purchase" render={(props)=> <Purchase {...props} key={Date.now()} />}/>
             <Route exact path="/policy" render={(props)=> <PrivatePolicy {...props} key={Date.now()} />}/>

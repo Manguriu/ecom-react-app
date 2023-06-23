@@ -57,7 +57,7 @@ export class Favourite extends Component {
     };
     return (
       <Fragment>
-        <Container className="text-center" fluid={true}>
+        <Container className="text-center p-4"  fluid={true}>
           <div className="section-title text-center mb-55">
             <h2>Favourite Products for you&nbsp;</h2>
             <p className="">

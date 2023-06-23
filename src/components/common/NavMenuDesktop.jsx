@@ -12,31 +12,28 @@ class NavMenuDesktop extends Component {
     this.state = {
       sideNavState: "sideNavClose",
       contentOverState: "ContentOverlayClose",
-      searchkey:"",
-      Searchstatus:"false"
-
+      searchkey: "",
+      Searchstatus: "false",
     };
     this.SearchOnChange = this.SearchOnChange.bind(this);
-    this.searchOnClick= this.searchOnClick.bind(this);
-    this.SearchRedirect= this.SearchRedirect.bind(this);
-    
+    this.searchOnClick = this.searchOnClick.bind(this);
+    this.SearchRedirect = this.SearchRedirect.bind(this);
   }
 
-  SearchOnChange(event){
-    let Searchkey= event.target.value;
-    this.setState({searchkey:Searchkey})
-    
+  SearchOnChange(event) {
+    let Searchkey = event.target.value;
+    this.setState({ searchkey: Searchkey });
   }
 
-  searchOnClick(){
-    if(this.state.searchkey.length>=2){
-      this.setState({Searchstatus:true})
+  searchOnClick() {
+    if (this.state.searchkey.length >= 2) {
+      this.setState({ Searchstatus: true });
     }
   }
 
-  SearchRedirect(){
-    if(this.state.Searchstatus===true){
-      return <Redirect to={"/productlistsearch/" +this.state.searchkey} />
+  SearchRedirect() {
+    if (this.state.Searchstatus === true) {
+      return <Redirect to={"/productlistsearch/" + this.state.searchkey} />;
     }
   }
 
@@ -91,8 +88,16 @@ class NavMenuDesktop extends Component {
 
                 <Col className="p-1 mt-1" lg={4} md={4} sm={12} xs={12}>
                   <div className="input-group w-100">
-                    <input onChange={(event)=>this.SearchOnChange(event)}  type="text" className="form-control" />
-                    <Button onClick={this.searchOnClick} type="button" className="btn site-btn">
+                    <input
+                      onChange={(event) => this.SearchOnChange(event)}
+                      type="text"
+                      className="form-control"
+                    />
+                    <Button
+                      onClick={this.searchOnClick}
+                      type="button"
+                      className="btn site-btn"
+                    >
                       <i className="fa fa-search"></i>
                     </Button>
                   </div>
@@ -113,12 +118,12 @@ class NavMenuDesktop extends Component {
                     </sup>
                   </Link>
 
-                  <button className="btn">
-                    <i className="fa h4 fa-mobile-alt"></i>
-                  </button>
-
                   <Link to="/login" className="h4 btn ">
                     Login
+                  </Link>
+
+                  <Link to="/register" className="h4 btn ">
+                    Register
                   </Link>
 
                   <Link to="/cart" className="cart-btn">

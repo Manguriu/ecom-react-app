@@ -3,7 +3,7 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import login from "../../assets/images/login.png";
 import { Link } from "react-router-dom";
 
-export class LoginUSer extends Component {
+export class Register extends Component {
   render() {
     return (
       <Fragment>
@@ -25,10 +25,15 @@ export class LoginUSer extends Component {
                   xs={12}
                 >
                   <Form className="onboardForm">
-                    <h4 className="section-title-login"> User Sign_In</h4>
-                    <h6 className="Section-sub-title">
-                      User Data
-                    </h6>
+                    <h4 className="section-title-login">
+                      New User Registration
+                    </h4>
+                    <h6 className="Section-sub-title">New User Data</h6>
+                    <input
+                      className="form-control m-2"
+                      type="text"
+                      placeholder="Enter Name.."
+                    />
                     <input
                       className="form-control m-2"
                       type="Email"
@@ -39,17 +44,19 @@ export class LoginUSer extends Component {
                       type="Password"
                       placeholder="Enter Password.."
                     />
+
+                    <input
+                      className="form-control m-2"
+                      type="Password"
+                      placeholder="Confirm Password.."
+                    />
                     <Button className="btn btn-block m-2 site-btn-login">
                       {" "}
-                      Login..
+                      Register..
                     </Button>
-                    <br></br><hr />
+                    <hr></hr>
                     <p>
-                        Dont have an Account? <Link to="/register">Register</Link>
-                    </p>
-                    <hr />
-                    <p>
-                      Password Reset:  <Link to="/reset"> Forgot Passord??..</Link>
+                      Already have an Account? <Link to="/login">Login..</Link>
                     </p>
                   </Form>
                 </Col>
@@ -66,4 +73,4 @@ export class LoginUSer extends Component {
   }
 }
 
-export default LoginUSer;
+export default Register;

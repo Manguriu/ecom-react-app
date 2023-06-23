@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import login from "../../assets/images/login.png";
+import forget from "../../assets/images/forget.jpg";
 import { Link } from "react-router-dom";
 
-export class LoginUSer extends Component {
+export class Password extends Component {
   render() {
     return (
       <Fragment>
@@ -25,45 +25,47 @@ export class LoginUSer extends Component {
                   xs={12}
                 >
                   <Form className="onboardForm">
-                    <h4 className="section-title-login"> User Sign_In</h4>
-                    <h6 className="Section-sub-title">
-                      User Data
-                    </h6>
+                    <h4 className="section-title-login">Password Reset</h4>
+                    <h6 className="Section-sub-title">Reset password</h6>
+
                     <input
                       className="form-control m-2"
                       type="Email"
                       placeholder="Enter Email.."
                     />
-                    <input
+                     <input
                       className="form-control m-2"
-                      type="Password"
-                      placeholder="Enter Password.."
+                      type="text"
+                      placeholder="Enter code.."
                     />
+                     <input
+                      className="form-control m-2"
+                      type="passord"
+                      placeholder="Enter New Password.."
+                    />
+                     <input
+                      className="form-control m-2"
+                      type="passord"
+                      placeholder="Confirm New password.."
+                    />
+
                     <Button className="btn btn-block m-2 site-btn-login">
                       {" "}
-                      Login..
+                      Send..
                     </Button>
-                    <br></br><hr />
-                    <p>
-                        Dont have an Account? <Link to="/register">Register</Link>
-                    </p>
-                    <hr />
-                    <p>
-                      Password Reset:  <Link to="/reset"> Forgot Passord??..</Link>
-                    </p>
                   </Form>
                 </Col>
                 {/* //Mobile view */}
                 <Col className="p-0 Desktop m-0" md={6} lg={6} sm={6} xs={6}>
-                  <img className="onboardBanner" src={login} />
+                  <img className="onboardBanner" src={forget} />
                 </Col>
               </Row>
             </Col>
           </Row>
         </Container>
       </Fragment>
-    );
+    )
   }
 }
 
-export default LoginUSer;
+export default Password

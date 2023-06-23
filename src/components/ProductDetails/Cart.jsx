@@ -6,7 +6,7 @@ export class Cart extends Component {
   render() {
     return (
       <Fragment>
-        <Container>
+        <Container className="p-2">
           <div className="section-title text-center mb-55">
             <h2> Cart List</h2>
           </div>

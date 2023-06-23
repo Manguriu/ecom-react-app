@@ -49,3 +49,12 @@
     color:inherit;
     text-decoration: inherit;
 }
+
+.Bread-crub{
+    background-color: #f8d6c9;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    font-weight: 600;
+    border-radius: 20px;
+}

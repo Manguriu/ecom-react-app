@@ -3,6 +3,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import AppURL from "../../api/AppURL";
 import axios from "axios";
 import parse from "html-react-parser";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
+import { Link } from "react-router-dom";
 
 export class Policy extends Component {
   constructor() {
@@ -28,6 +30,13 @@ export class Policy extends Component {
     return (
       <Fragment>
         <Container>
+        <div className="Bread-crub">
+          <Breadcrumb>
+            <Breadcrumb.Item><Link to="/"> Home</Link></Breadcrumb.Item>
+            <Breadcrumb.Item><Link to="/policy">Policy</Link>
+            </Breadcrumb.Item>
+          </Breadcrumb>
+          </div>
           <Row className="p-2">
             <Col
               className="shadow-sm bg-white mt-2"

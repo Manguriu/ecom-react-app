@@ -14,14 +14,33 @@ import FavouritePage from '../pages/FavouritePage'
 import CartPage from '../pages/CartPage'
 import CategoryPage from '../pages/CategoryPage'
 import ProductSub from '../pages/ProductSub'
+import Search from '../pages/Search'
 
 class AppRoute extends Component {
   render() {
     return (
       <Fragment>
         <Switch>
-            <Route exact path="/" component={HomePage}/>
-            <Route exact path="/login" component={UserLogin}/>
+            
+
+
+            <Route exact path="/" render={(props)=> <HomePage {...props} key={Date.now()} />}/>
+            <Route exact path="/login" render={(props)=> <UserLogin {...props} key={Date.now()} />}/>
+            <Route exact path="/contact" render={(props)=> <ContactPage {...props} key={Date.now()} />}/>
+            <Route exact path="/purchase" render={(props)=> <Purchase {...props} key={Date.now()} />}/>
+            <Route exact path="/policy" render={(props)=> <PrivatePolicy {...props} key={Date.now()} />}/>
+            <Route exact path="/refund" render={(props)=> <RefundPolicy {...props} key={Date.now()} />}/>
+            <Route exact path="/profile" render={(props)=> <CompanyProfile {...props} key={Date.now()} />}/>
+            <Route exact path="/about" render={(props)=> <AboutCompany {...props} key={Date.now()} />}/>
+            <Route exact path="/product/:code" render={(props)=> <ProductDetails {...props} key={Date.now()} />}/>
+            <Route exact path="/notify" render={(props)=> <Notification {...props} key={Date.now()} />}/>
+            <Route exact path="/favourite" render={(props)=> <FavouritePage {...props} key={Date.now()} />}/>
+            <Route exact path="/cart" render={(props)=> <CartPage {...props} key={Date.now()} />}/>
+            <Route exact path="/categorylist/:category" render={(props)=> <CategoryPage {...props} key={Date.now()} />}/>
+            <Route exact path="/subcategorylist/:category/:sub_category" render={(props)=> <ProductSub {...props} key={Date.now()} />}/>
+            <Route exact path="/productlistsearch/:searchkey" render={(props)=> <Search {...props} key={Date.now()} />}/>
+
+            {/* <Route exact path="/login" component={UserLogin}/>
             <Route exact path="/contact" component={ContactPage}/>
             <Route exact path="/purchase" component={Purchase}/>
             <Route exact path="/policy" component={PrivatePolicy}/>
@@ -33,7 +52,7 @@ class AppRoute extends Component {
             <Route exact path="/favourite" component={FavouritePage}/>
             <Route exact path="/cart" component={CartPage}/>
             <Route exact path="/categorylist/:category" component={CategoryPage}/>
-            <Route exact path="/subcategorylist/:category/:sub_category" component={ProductSub}/>
+            <Route exact path="/subcategorylist/:category/:sub_category" component={ProductSub}/> */}
             
         </Switch>
       </Fragment>

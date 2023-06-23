@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Col, Container, Navbar, Row } from "react-bootstrap";
 import ecom2 from "../../assets/images/ecom2.png";
 import menu from "../../assets/images/menu.png";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import AllMenu from "../home/AllMenu";
 
@@ -12,8 +12,34 @@ class NavMenuDesktop extends Component {
     this.state = {
       sideNavState: "sideNavClose",
       contentOverState: "ContentOverlayClose",
+      searchkey:"",
+      Searchstatus:"false"
+
     };
+    this.SearchOnChange = this.SearchOnChange.bind(this);
+    this.searchOnClick= this.searchOnClick.bind(this);
+    this.SearchRedirect= this.SearchRedirect.bind(this);
+    
   }
+
+  SearchOnChange(event){
+    let Searchkey= event.target.value;
+    this.setState({searchkey:Searchkey})
+    
+  }
+
+  searchOnClick(){
+    if(this.state.searchkey.length>=2){
+      this.setState({Searchstatus:true})
+    }
+  }
+
+  SearchRedirect(){
+    if(this.state.Searchstatus===true){
+      return <Redirect to={"/productlistsearch/" +this.state.searchkey} />
+    }
+  }
+
   menuClickHandler = () => {
     this.sideNavOpenclose();
   };
@@ -65,8 +91,8 @@ class NavMenuDesktop extends Component {
 
                 <Col className="p-1 mt-1" lg={4} md={4} sm={12} xs={12}>
                   <div className="input-group w-100">
-                    <input type="text" className="form-control" />
-                    <Button type="button" className="btn site-btn">
+                    <input onChange={(event)=>this.SearchOnChange(event)}  type="text" className="form-control" />
+                    <Button onClick={this.searchOnClick} type="button" className="btn site-btn">
                       <i className="fa fa-search"></i>
                     </Button>
                   </div>
@@ -100,6 +126,7 @@ class NavMenuDesktop extends Component {
                   </Link>
                 </Col>
               </Row>
+              {this.SearchRedirect()}
             </Container>
           </Navbar>
         </div>

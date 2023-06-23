@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 import ReactDOM from "react-dom";
+import { Link } from "react-router-dom";
 
 export class Product extends Component {
   constructor() {
@@ -22,7 +24,8 @@ export class Product extends Component {
       return (
         <p className="product-price-on-card">
           Price: Ksh : {price} <br></br>
-          Price: <strike className="text-warning"> Ksh {price}</strike>{" "}<br></br>
+          Price: <strike className="text-warning"> Ksh {price}</strike>{" "}
+          <br></br>
           Discount : {discount}
         </p>
       );
@@ -75,6 +78,24 @@ export class Product extends Component {
     return (
       <Fragment>
         <Container fluid={true} className="BetweenTwoSection">
+          <div className="Bread-crub mt-2">
+            <Breadcrumb>
+              <Breadcrumb.Item>
+                <Link to="/"> Home</Link>
+              </Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <Link to={"/categorylist/" + category}>{category}</Link>
+              </Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <Link to={"/subcategorylist/" + category + "/" + sub_category}>
+                  {sub_category}
+                </Link>
+              </Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <Link to={"/product/" + product_code}>{product_code}</Link>
+              </Breadcrumb.Item>
+            </Breadcrumb>
+          </div>
           <Row className="p-2">
             <Col
               className="shadow-sm bg-white pb-3 mt-4"
@@ -126,7 +147,7 @@ export class Product extends Component {
                 <Col className="p-3 " md={6} lg={6} sm={12} xs={12}>
                   <h5 className="Product-Name">{title}</h5>
                   <h6 className="section-sub-title">{short_desc}</h6>
-                  {this.priceOption(price,discount)}
+                  {this.priceOption(price, discount)}
 
                   <h6 className="mt-2">
                     <b>Category</b>: <i>{category}</i>

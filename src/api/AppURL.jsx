@@ -7,6 +7,8 @@ class AppURL {
   static SiteDetails = this.BaseURL + "/siteinfo";
   static AllCategory = this.BaseURL + "/categories";
   static SlideMenu = this.BaseURL + "/slidermenu";
+  static NoftHistory = this.BaseURL + "/allNotification";
+  
 
   static AllProductsremark(remark) {
     return this.BaseURL + "/Productsbyremark/"+remark;
@@ -14,6 +16,10 @@ class AppURL {
 
   static AllProductscategory(category) {
     return this.BaseURL + "/Productsbycategory/"+category;
+  }
+
+  static SearchOption(searchkey) {
+    return this.BaseURL + "/search/"+searchkey;
   }
 
   static AllProductssubcategory(category,sub_category) {

@@ -16,7 +16,7 @@ export class AboutCompany extends Component {
           <NavMenuMobile />
         </div>
 
-        <About />
+        <About className="mt-2"/>
 
         <div className="Desktop">
           <FooterDesktop />

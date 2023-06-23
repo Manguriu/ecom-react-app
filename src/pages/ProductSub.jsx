@@ -31,7 +31,7 @@ export class ProductSub extends Component {
 
   render() {
     return (
-      <Fragment>
+      
         <Fragment>
         <div className="Desktop">
           <NavMenuDesktop />
@@ -49,7 +49,7 @@ export class ProductSub extends Component {
         <div className="Mobile">
           <FooterMobile />
         </div>
-      </Fragment>
+  
       </Fragment>
     )
   }

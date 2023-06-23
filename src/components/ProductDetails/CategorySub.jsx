@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 export class CategorySub extends Component {
   render() {
@@ -47,6 +48,19 @@ export class CategorySub extends Component {
     return (
       <Fragment>
         <Container className="text-center" fluid={true} >
+        <div className="Bread-crub mt-2">
+          <Breadcrumb>
+            <Breadcrumb.Item>
+              <Link to="/"> Home</Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>
+              <Link to={"/categorylist/"+Category }>{Category}</Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>
+              <Link to={"/subcategorylist/"+Category+"/"+Sub_Category }>{Sub_Category}</Link>
+            </Breadcrumb.Item>
+          </Breadcrumb>
+        </div>
          <div className="section-title text-center mb-55">
           <h2>{Category}<br />{Sub_Category}</h2>
           <p className=''>This are some of our  products collection, Amazing Products you may like.</p>

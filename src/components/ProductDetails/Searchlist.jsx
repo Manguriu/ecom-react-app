@@ -4,10 +4,11 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 
-export class Category extends Component {
+
+export class Searchlist extends Component {
   render() {
     const Categorylist = this.props.ProductData;
-    const Category = this.props.category;
+    const searchkey = this.props.searchkey;
     const MyView = Categorylist.map((Categorylist, i) => {
       if (Categorylist.discount === "na") {
         return (
@@ -56,17 +57,16 @@ export class Category extends Component {
               <Link to="/"> Home</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
-              <Link to={"/categorylist/"+Category }>{Category}</Link>
+              <Link to={"/categorylist/"+searchkey }>{searchkey}</Link>
             </Breadcrumb.Item>
           </Breadcrumb>
         </div>
 
         <Container className="text-center" fluid={true}>
           <div className="section-title text-center mb-55 mt-1">
-            <h2>{Category}</h2>
+            <h2>You Searched for: {searchkey}</h2>
             <p className="">
-              This are some of our products collection, Amazing Products you may
-              like.
+              Some Products you Searched For,
             </p>
           </div>
           <Row>{MyView}</Row>
@@ -76,4 +76,4 @@ export class Category extends Component {
   }
 }
 
-export default Category;
+export default Searchlist

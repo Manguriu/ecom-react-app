@@ -2,12 +2,19 @@ import React, { Component, Fragment } from "react";
 
 export class Profile extends Component {
   render() {
+    let name;
+    let email;
+    if (this.props.user) {
+      name = this.props.user.name;
+      email = this.props.user.email;
+    }
+
     return (
-      <Fragment >
+      <Fragment>
         <h1 className="mt-4 p-4">User Profile Details</h1>
         <ul className="list-group">
-          <li className="list-group-item">Name:</li>
-          <li className="list-group-item">Email:</li>
+          <li className="list-group-item">Name : {name}</li>
+          <li className="list-group-item">Email : {email}</li>
         </ul>
       </Fragment>
     );

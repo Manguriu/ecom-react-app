@@ -8,30 +8,30 @@ class AppURL {
   static AllCategory = this.BaseURL + "/categories";
   static SlideMenu = this.BaseURL + "/slidermenu";
   static NoftHistory = this.BaseURL + "/allNotification";
-  
+  static UserLogin = this.BaseURL + "/login";
+  static UserData = this.BaseURL + "/user";
 
   static AllProductsremark(remark) {
-    return this.BaseURL + "/Productsbyremark/"+remark;
+    return this.BaseURL + "/Productsbyremark/" + remark;
   }
 
   static AllProductscategory(category) {
-    return this.BaseURL + "/Productsbycategory/"+category;
+    return this.BaseURL + "/Productsbycategory/" + category;
   }
 
   static SearchOption(searchkey) {
-    return this.BaseURL + "/search/"+searchkey;
+    return this.BaseURL + "/search/" + searchkey;
   }
 
-  static AllProductssubcategory(category,sub_category) {
-    return this.BaseURL + "/Productsbysubcategory/"+category+"/"+sub_category;
+  static AllProductssubcategory(category, sub_category) {
+    return (
+      this.BaseURL + "/Productsbysubcategory/" + category + "/" + sub_category
+    );
   }
 
   static ProductDetails(code) {
-    return this.BaseURL + "/productdesc/"+code;
+    return this.BaseURL + "/productdesc/" + code;
   }
-  
-  
-
 }
 
 export default AppURL;

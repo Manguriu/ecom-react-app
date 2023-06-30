@@ -10,6 +10,8 @@ class AppURL {
   static NoftHistory = this.BaseURL + "/allNotification";
   static UserLogin = this.BaseURL + "/login";
   static UserData = this.BaseURL + "/user";
+  static UserRegister = this.BaseURL + "/register";
+  static UserForget = this.BaseURL + "/forgetpassword";
 
   static AllProductsremark(remark) {
     return this.BaseURL + "/Productsbyremark/" + remark;

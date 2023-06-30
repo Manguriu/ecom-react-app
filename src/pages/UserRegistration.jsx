@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react'
-import Register from '../components/common/Register'
+import React, { Component, Fragment } from "react";
+import Register from "../components/common/Register";
 import NavMenuDesktop from "../components/common/NavMenuDesktop";
 import NavMenuMobile from "../components/common/NavMenuMobile";
 import FooterDesktop from "../components/common/FooterDesktop";
@@ -7,8 +7,10 @@ import FooterMobile from "../components/common/FooterMobile";
 
 export class UserRegistration extends Component {
   render() {
+    const setUser = this.props.setUser;
+    const user = this.props.user;
     return (
-        <Fragment>
+      <Fragment>
         <div className="Desktop">
           <NavMenuDesktop />
         </div>
@@ -16,7 +18,7 @@ export class UserRegistration extends Component {
           <NavMenuMobile />
         </div>
 
-        <Register />
+        <Register setUser={setUser} user={user} />
 
         <div className="Desktop">
           <FooterDesktop />
@@ -26,8 +28,8 @@ export class UserRegistration extends Component {
           <FooterMobile />
         </div>
       </Fragment>
-    )
+    );
   }
 }
 
-export default UserRegistration
+export default UserRegistration;

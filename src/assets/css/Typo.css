@@ -58,3 +58,7 @@
     font-weight: 600;
     border-radius: 20px;
 }
+
+.uppercase-text {
+    text-transform: uppercase;
+  }

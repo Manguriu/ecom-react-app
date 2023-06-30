@@ -13,8 +13,8 @@ export class Profile extends Component {
       <Fragment>
         <h1 className="mt-4 p-4">User Profile Details</h1>
         <ul className="list-group">
-          <li className="list-group-item">Name : {name}</li>
-          <li className="list-group-item">Email : {email}</li>
+          Name :<li className="list-group-item uppercase-text"> {name}</li>
+          Email:<li className="list-group-item uppercase-text"> {email}</li>
         </ul>
       </Fragment>
     );

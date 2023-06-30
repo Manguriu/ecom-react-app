@@ -20,6 +20,10 @@ class NavMenuDesktop extends Component {
     this.SearchRedirect = this.SearchRedirect.bind(this);
   }
 
+  Logout = () => {
+    localStorage.clear();
+  };
+
   SearchOnChange(event) {
     let Searchkey = event.target.value;
     this.setState({ searchkey: Searchkey });
@@ -64,14 +68,76 @@ class NavMenuDesktop extends Component {
   };
 
   render() {
+    let buttons;
+    if (localStorage.getItem("token")) {
+      buttons = (
+        <div>
+          <Link to="/favourite" className="btn">
+            <i className="fa h4 fa-heart"></i>
+            <sup>
+              <span className="badge text-white bg-danger">2</span>
+            </sup>
+          </Link>
+
+          <Link to="/notify" className="btn">
+            <i className="fa h4 fa-bell"></i>
+            <sup>
+              <span className="badge text-white bg-warning">5</span>
+            </sup>
+          </Link>
+
+          <Link to="/" onClick={this.Logout} className="h4 btn ">
+            Logout
+          </Link>
+
+          <Link to="/user" className="h4 btn ">
+            Profile
+          </Link>
+
+          <Link to="/cart" className="cart-btn">
+            <i className=" fa fa-shopping-cart"> 10 items</i>
+          </Link>
+        </div>
+      );
+    } else {
+      buttons = (
+        <div>
+          <Link to="/favourite" className="btn">
+            <i className="fa h4 fa-heart"></i>
+            <sup>
+              <span className="badge text-white bg-danger">2</span>
+            </sup>
+          </Link>
+
+          <Link to="/notify" className="btn">
+            <i className="fa h4 fa-bell"></i>
+            <sup>
+              <span className="badge text-white bg-warning">5</span>
+            </sup>
+          </Link>
+
+          <Link to="/login" className="h4 btn ">
+            Login
+          </Link>
+
+          <Link to="/register" className="h4 btn ">
+            Register
+          </Link>
+
+          <Link to="/cart" className="cart-btn">
+            <i className=" fa fa-shopping-cart"> 10 items</i>
+          </Link>
+        </div>
+      );
+    }
+
     return (
       <Fragment>
         <div className="TopSectionDown bg-dark">
           <Navbar fixed={"top"} className="navbar" bg="light">
             <Container
               fluid={"true"}
-              className="fixed-top shadow-sm mb-0 p-2 bg-white"
-            >
+              className="fixed-top shadow-sm mb-0 p-2 bg-white">
               <Row>
                 <Col lg={4} md={4} sm={12} xs={12}>
                   <img
@@ -96,39 +162,13 @@ class NavMenuDesktop extends Component {
                     <Button
                       onClick={this.searchOnClick}
                       type="button"
-                      className="btn site-btn"
-                    >
+                      className="btn site-btn">
                       <i className="fa fa-search"></i>
                     </Button>
                   </div>
                 </Col>
-
                 <Col className="p-1 mt-1" lg={4} md={4} sm={12} xs={12}>
-                  <Link to="/favourite" className="btn">
-                    <i className="fa h4 fa-heart"></i>
-                    <sup>
-                      <span className="badge text-white bg-danger">2</span>
-                    </sup>
-                  </Link>
-
-                  <Link to="/notify" className="btn">
-                    <i className="fa h4 fa-bell"></i>
-                    <sup>
-                      <span className="badge text-white bg-warning">5</span>
-                    </sup>
-                  </Link>
-
-                  <Link to="/login" className="h4 btn ">
-                    Login
-                  </Link>
-
-                  <Link to="/register" className="h4 btn ">
-                    Register
-                  </Link>
-
-                  <Link to="/cart" className="cart-btn">
-                    <i className=" fa fa-shopping-cart"> 10 items</i>
-                  </Link>
+                  {buttons}
                 </Col>
               </Row>
               {this.SearchRedirect()}
@@ -142,8 +182,7 @@ class NavMenuDesktop extends Component {
 
         <div
           onClick={this.OverlayClickHandler}
-          className={this.state.contentOverState}
-        ></div>
+          className={this.state.contentOverState}></div>
       </Fragment>
     );
   }

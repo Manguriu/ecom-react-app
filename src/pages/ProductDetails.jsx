@@ -4,7 +4,7 @@ import NavMenuMobile from "../components/common/NavMenuMobile";
 import FooterDesktop from "../components/common/FooterDesktop";
 import FooterMobile from "../components/common/FooterMobile";
 import Product from "../components/ProductDetails/Product";
-import Sugested from "../components/ProductDetails/Sugested";
+
 import axios from "axios";
 import AppURL from "../api/AppURL";
 import Slider from "../components/placeholder/Slider";
@@ -67,7 +67,7 @@ export class ProductDetails extends Component {
           </div>
 
           <Product data={this.state.ProductData} />
-          <Sugested />
+          
 
           <div className="Desktop">
             <FooterDesktop />

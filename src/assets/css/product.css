@@ -17,10 +17,22 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 400;
 }
-.p_sm_img{
 
-}
 
 .p_sm_img:hover{
     cursor: pointer;
 }
+
+.detailimage{    
+    /* max-width: 200%;
+    height: 400px;
+    margin: 50px;
+    margin-left: 200px;  
+    display:inline-block;  */
+max-width: 100%;
+height: auto;
+display: block;
+visibility: visible;
+opacity: 1;
+      
+ } 

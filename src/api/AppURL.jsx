@@ -35,6 +35,12 @@ class AppURL {
   static ProductDetails(code) {
     return this.BaseURL + "/productdesc/" + code;
   }
+  static SuggestedP(code) {
+    return this.BaseURL + "/suggested/" + code;
+  }
+  static Review(code) {
+    return this.BaseURL + "/review/" + code;
+  }
 }
 
 export default AppURL;

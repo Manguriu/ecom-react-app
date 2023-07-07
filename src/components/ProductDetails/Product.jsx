@@ -3,19 +3,26 @@ import { Container, Row, Col } from "react-bootstrap";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
+import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
+import InnerImageZoom from "react-inner-image-zoom";
+import Sugested from "./Sugested";
+import Reviews from "./Reviews";
 
 export class Product extends Component {
   constructor() {
     super();
+    this.state = {
+      imageprev: "0",
+    };
   }
 
   //image loader
-  imagOnclick(event) {
+  imagOnclick = (event) => {
     let imgsrc = event.target.getAttribute("src");
-    let imgPreview = document.getElementById("imgPreview");
-
-    ReactDOM.findDOMNode(imgPreview).setAttribute("src", imgsrc);
-  }
+    // let imgPreview = document.getElementById("imgPreview");
+    // ReactDOM.findDOMNode(imgPreview).setAttribute("src", imgsrc);
+    this.setState({ imageprev: imgsrc });
+  };
 
   priceOption(price, discount) {
     if (discount === "na") {
@@ -41,6 +48,7 @@ export class Product extends Component {
     let image = AllData["productlist"][0]["image"];
     let price = AllData["productlist"][0]["price"];
     let product_code = AllData["productlist"][0]["product_code"];
+    let Product_id = AllData["productdetails"][0]["Product_id"];
     let ratings = AllData["productlist"][0]["ratings"];
     let remark = AllData["productlist"][0]["remark"];
     let discount = AllData["productlist"][0]["discount"];
@@ -52,6 +60,10 @@ export class Product extends Component {
     let image_3 = AllData["productdetails"][0]["image_3"];
     let image_4 = AllData["productdetails"][0]["image_4"];
     let long_desc = AllData["productdetails"][0]["long_desc"];
+
+    if (this.state.imageprev === "0") {
+      this.setState({ imageprev: image });
+    }
 
     var ColorDiv = "d-none";
     if (color !== "na") {
@@ -102,11 +114,18 @@ export class Product extends Component {
               md={12}
               lg={12}
               sm={12}
-              xs={12}
-            >
+              xs={12}>
               <Row>
                 <Col className="p-3" md={6} lg={6} sm={12} xs={12}>
-                  <img id="imgPreview" className="w-100" src={image} />
+                  {/* <img id="imgPreview" className="w-100" src={image} /> */}
+                  <div id="imgPreview" className="detailimage">
+                    <InnerImageZoom
+                      zoomType="hover"
+                      zoomScale={1.4}
+                      src={this.state.imageprev}
+                      zoomSrc={this.state.imageprev}
+                    />
+                  </div>
                   <Container className="my-3">
                     <Row>
                       <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
@@ -114,7 +133,7 @@ export class Product extends Component {
                           onClick={this.imagOnclick}
                           className="w-100 p_sm_img"
                           alt=""
-                          src={image_1}
+                          src={image}
                         />
                       </Col>
                       <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
@@ -218,54 +237,14 @@ export class Product extends Component {
                   <h6 className="mt-2">DETAILS</h6>
                   <h6>{long_desc}</h6>
                 </Col>
-
                 <Col className="" md={6} lg={6} sm={12} xs={12}>
-                  <h6 className="mt-2">REVIEWS</h6>
-                  <p className=" p-0 m-0">
-                    <span className="Review-Title">Brian</span>{" "}
-                    <span className="text-success">
-                      <i className="fa fa-star"></i>{" "}
-                      <i className="fa fa-star"></i>{" "}
-                      <i className="fa fa-star"></i>{" "}
-                      <i className="fa fa-star"></i>{" "}
-                    </span>{" "}
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-                    magna aliquam erat volutpat.
-                  </p>
-
-                  <p className=" p-0 m-0">
-                    <span className="Review-Title">kodi</span>{" "}
-                    <span className="text-success">
-                      <i className="fa fa-star"></i>{" "}
-                      <i className="fa fa-star"></i>{" "}
-                      <i className="fa fa-star"></i>{" "}
-                      <i className="fa fa-star"></i>{" "}
-                    </span>{" "}
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-                    magna aliquam erat volutpat.
-                  </p>
-
-                  <p className=" p-0 m-0">
-                    <span className="Review-Title">John doe</span>{" "}
-                    <span className="text-success">
-                      <i className="fa fa-star"></i>{" "}
-                      <i className="fa fa-star"></i>{" "}
-                      <i className="fa fa-star"></i>{" "}
-                      <i className="fa fa-star"></i>{" "}
-                    </span>{" "}
-                  </p>
-                  <p>Great leap in Design and performance.</p>
+                  <Reviews code={Product_id} />
                 </Col>
               </Row>
             </Col>
           </Row>
         </Container>
+        <Sugested sub_category={sub_category} />
       </Fragment>
     );
   }
